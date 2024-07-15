@@ -5,5 +5,16 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
+    let arr = Object.entries(obj);
+    let newArr = [];
+    
+    for(let field of fields){
+        for(let item of arr){
+            if(item[0] === field){
+                newArr.push(item);
+            }
+        }
+    }
 
+    return Object.fromEntries(newArr);
 };
