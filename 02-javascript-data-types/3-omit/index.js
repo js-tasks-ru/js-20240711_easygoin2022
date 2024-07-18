@@ -5,5 +5,10 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
+    let arr = Object.entries(obj); //оставляю let, так как буду переопределять на строке 10.
+    for(let i = 0; i < arr.length; i++){
+        arr = arr.filter(item => item[0] != fields[i]);
+    }
 
+    return Object.fromEntries(arr);
 };
